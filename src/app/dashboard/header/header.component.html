@@ -1,0 +1,12 @@
+<mat-toolbar class="row middle-xs">
+    <div class="col-xs-2 center-xs">
+        <span>Sort App</span>
+    </div>
+    <div class="col-xs-10 end-xs">
+        <mat-label>Array Size</mat-label>
+        <mat-slider min="10" max="350" step="2" [value]="arraySize" (input)="updateValue($event)">
+        </mat-slider>
+        <mat-label>{{arraySize}}</mat-label>
+    </div>
+    
+</mat-toolbar>
