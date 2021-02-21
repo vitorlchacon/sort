@@ -1,0 +1,12 @@
+.board {
+    display: flex;
+}
+
+.element {
+    width: 3px;
+    border-width: 1px;
+    border-color: darkblue;
+    border-style: solid;
+    background-color: blue;
+    margin: 2px;
+}

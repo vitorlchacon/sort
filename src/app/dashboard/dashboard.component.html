@@ -1,2 +1,10 @@
-<app-header [arraySize]="arraySize" (newValue)=(printNew($event))></app-header>
-<app-board></app-board>
+<app-header 
+    [arraySize]="arraySize" 
+    [maxValue]="maxValue" 
+    (newValue)="printNew($event)" 
+    (shuffleFlag)="shuffle()"
+    (sortFlag)="sort($event)">
+</app-header>
+<app-board 
+    [values]="values">
+</app-board>

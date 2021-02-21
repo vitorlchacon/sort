@@ -1,1 +1,5 @@
-<p>board works!</p>
+<div class="full-width board center-xs">
+    <div *ngFor="let value of values">
+        <div class="element" [ngStyle]="{'height.px': value}"></div>
+    </div> 
+</div>
