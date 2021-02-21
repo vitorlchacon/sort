@@ -1,0 +1,9 @@
+{
+  "name": "sort",
+  "version": "0.0.1",
+  "description": "Using Angular 10",
+  "main": "index.js",
+  "repository": "https://github.com/vitorlchacon/sort.git",
+  "author": "V. Chacon <vitorlchacon@gmail.com>",
+  "license": "MIT"
+}
