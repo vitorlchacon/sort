@@ -3,7 +3,7 @@ import { SORT_METHODS } from './sort-method.model';
 
 function populateArray(size: number): number[] {
   const arrayValues: number[] = [];
-  for (let i = 1; i <= size; i ++) {
+  for (let i = 1; i <= size; i++) {
     arrayValues.push(i * 4);
   }
   return arrayValues;
@@ -33,7 +33,6 @@ export class DashboardComponent implements OnInit {
   }
 
   printNew(newValue: number): void {
-    console.log(newValue);
     this.values = values.slice(0, newValue);
   }
 
@@ -41,30 +40,47 @@ export class DashboardComponent implements OnInit {
     this.values.sort(() => Math.random() - 0.5);
   }
 
-  sort(method: string): void {
-    this.insertion(this.values);
+  async sort(method: string): Promise<any> {
+    const initDate = performance.now();
+    switch (method) {
+      case 'insertion':
+        await this.insertionSort(this.values);
+        break;
+      case 'merge':
+        await this.mergeSort(this.values);
+        break;
+      case 'bubble':
+        await this.bubbleSort(this.values);
+        break;
+      case 'selection':
+        await this.selectionSort(this.values);
+        break;
+    }
+    const endDate = performance.now();
+    console.log((endDate - initDate) / 1000);
   }
 
-  private async insertion(inputArr: number[]): Promise<number[]> {
-    const n = inputArr.length;
-    for (let i = 1; i < n; i++) {
-        // Choosing the first element in our unsorted subarray
-        const current = inputArr[i];
-        // The last element of our sorted subarray
-        let j = i - 1;
-        while ((j > -1) && (current < inputArr[j])) {
-            inputArr[j + 1] = inputArr[j];
-            j--;
-            await this.sleep(1);
-        }
+  private async insertionSort(inputArr: number[]): Promise<number[]> {
+    // TODO
+    return [];
+  }
 
-        inputArr[j + 1] = current;
-        await this.sleep(1);
-    }
-    return inputArr;
-}
+  private async bubbleSort(inputArr: number[]): Promise<number[]> {
+    // TODO
+    return [];
+  }
 
-private sleep(ms: number): any {
+  private async selectionSort(inputArr: number[]): Promise<number[]> {
+    // TODO
+    return [];
+  }
+
+  private async mergeSort(inputArr: number[]): Promise<number[]> {
+    // TODO
+    return [];
+  }
+
+  private sleep(ms: number): any {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 }

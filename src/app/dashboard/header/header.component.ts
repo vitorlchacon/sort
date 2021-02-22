@@ -23,11 +23,15 @@ export class HeaderComponent {
   @Output()
   sortFlag = new Subject<string>();
 
+  sortMethods = ['bubble', 'insertion', 'merge', 'selection'];
+  selectedSortMethod = 'bubble';
+
   constructor() { }
 
   updateValue(event: any): void {
     this.arraySize = event.value;
     this.newValue.next(event.value);
+    this.shuffle();
   }
 
   shuffle(): void{
@@ -35,6 +39,7 @@ export class HeaderComponent {
   }
 
   sort(): void{
-    this.sortFlag.next('insertion');
+    console.log(this.selectedSortMethod)
+    this.sortFlag.next(this.selectedSortMethod);
   }
 }
