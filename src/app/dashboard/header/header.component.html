@@ -1,18 +1,23 @@
 <mat-toolbar class="row middle-xs">
-    <div  class="col-xs-2 center-xs">
-        <span>Sort App</span>
-    </div>
-    <div class="col-xs-8 end-xs">
-        <mat-label>Array Size</mat-label>
-        <mat-slider min="10" [max]="maxValue" step="2" [value]="arraySize" (input)="updateValue($event)">
-        </mat-slider>
-        <mat-label>{{arraySize}}</mat-label>
-    </div>
-    <div class="col-xs-1 end-xs">
-        <button mat-raised-button color="primary" (click)="shuffle()">Shuffle</button>
-    </div>
-    <div class="col-xs-1 end-xs">
-        <button mat-raised-button color="primary" (click)="sort()">Sort!</button>
-    </div>
-    
+  <div class="col-xs-2 center-xs">
+    <span>Sort App</span>
+  </div>
+  <div class="col-xs-8 end-xs">
+    <mat-label>Array Size</mat-label>
+    <mat-slider min="10" [max]="maxValue" step="2" [value]="arraySize" (input)="updateValue($event)">
+    </mat-slider>
+    <mat-label>{{arraySize}}</mat-label>
+    <button mat-raised-button color="primary" (click)="shuffle()">Shuffle</button>
+  </div>
+  <div class="col-xs-2 end-xs">
+    <mat-form-field>
+      <mat-select matInput [(ngModel)]="selectedSortMethod">
+        <mat-option *ngFor="let sortMethod of sortMethods" [value]="sortMethod">
+          {{ sortMethod | titlecase }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="sort()">Sort!</button>
+  </div>
+
 </mat-toolbar>
